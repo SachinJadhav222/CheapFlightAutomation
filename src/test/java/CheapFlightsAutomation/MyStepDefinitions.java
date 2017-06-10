@@ -11,6 +11,7 @@ import org.junit.Assert;
  */
 public class MyStepDefinitions {
     HomePage homePage=new HomePage();
+    SingUpPopUpPage singUpPopUpPage=new SingUpPopUpPage();
 
     @Given("^use is on Home Page user can see tag line message \"([^\"]*)\"$")
     public void useIsOnHomePageUserCanSeeTagLineMessage(String message) throws Throwable {
@@ -25,7 +26,7 @@ public class MyStepDefinitions {
 
     @When("^user enter \"([^\"]*)\",\"([^\"]*)\",\"([^\"]*)\"$")
     public void userEnter(String name, String email, String password) throws Throwable {
-        homePage.enterSignInDetails(name, email, password);
+        singUpPopUpPage.enterSignInDetails(name, email, password);
     }
 
     @Then("^user see accoutn created$")

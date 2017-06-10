@@ -30,4 +30,10 @@ public class SmokeTest {
        // homePage.isMessageDisplayed();
 
     }
+
+    @Test
+    public void enter_AirPort(){
+        FlightTabPage flightTabPage=new FlightTabPage();
+        flightTabPage.enter_Airport();
+    }
 }

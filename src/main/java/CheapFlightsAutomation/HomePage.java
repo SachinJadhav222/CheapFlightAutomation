@@ -10,47 +10,63 @@ public class HomePage extends BaseMain {
     @FindBy(xpath = "//span[@class=\"tag-line\"]")
     private WebElement tagLineMessageText;
 
-    @FindBy(xpath = "//section[@class=\"right\" ]/a[1]")
+    @FindBy(css = "a[data-reactid=\".0.0.1.0:$signup\"]")
     private WebElement signUpButton;
 
-//    @FindBy(xpath = "//div[@id=\"modal\"]")
-//    private WebElement iframeElement;
-    @FindBy(xpath = "html/body/div[1]")
-    private WebElement iframeElement;
+    @FindBy(css = "")
+    private WebElement logInButton;
 
-    @FindBy(xpath = "//input[@id=\"name\"][@name=\"name\"]")
-    private WebElement enterName;
-
-    @FindBy(xpath = "//input[@id=\"email\"][@name=\"email\"]")
-    private WebElement enterEmail;
-
-    @FindBy(xpath = "////input[@id=\"password\"][@name=\"password\"]")
-    private WebElement enterPassword;
+    @FindBy(css = "")
+    private WebElement flightTab;
+    @FindBy(css = "")
+    private WebElement hotelTab;
+    @FindBy(css = "")
+    private WebElement carsTab;
+    @FindBy(css = "")
+    private WebElement holidayDealsTab;
 
     public void click_signUpButton() throws InterruptedException {
         signUpButton.click();
-        Thread.sleep(2000);
+
     }
 
-    public boolean isMessageDisplayed(String message){
+    public void click_logInButton() {
+        logInButton.click();
+    }
+
+    public void click_FlightTab() {
+        System.out.println("===Clicking Flight Tab====");
+        flightTab.click();
+        System.out.println("===Flight Tab Clicked====");
+    }
+
+    public void click_HotelTab() {
+        System.out.println("===Clicking Hotels Tab====");
+        hotelTab.click();
+        System.out.println("===Hotels Tab Clicked====");
+    }
+
+    public void click_CarsTab() {
+        System.out.println("===Clicking Car Tab====");
+        carsTab.click();
+        System.out.println("===Car Tab Clicked====");
+    }
+
+    public void click_HolidayDealsTab() {
+        System.out.println("===Clicking Holiday Deals Tab====");
+        holidayDealsTab.click();
+        System.out.println("===Holiday Deals Tab Clicked====");
+    }
+
+    public boolean isMessageDisplayed(String message) {
         System.out.println("======HOME PAGE======");
-        boolean isDisplayed=false;
-        if(tagLineMessageText.getText().equalsIgnoreCase(message)){
-            isDisplayed=true;
-            System.out.println("====Message Displayed= "+message+ "====");
+        boolean isDisplayed = false;
+        if (tagLineMessageText.getText().equalsIgnoreCase(message)) {
+            isDisplayed = true;
+            System.out.println("====Message Displayed= " + message + "====");
         }
-return isDisplayed;
+        return isDisplayed;
     }
 
-
-    public void enterSignInDetails(String name,String email,String password){
-        System.out.println("==Enter sign up details=====");
-        driver.switchTo().frame(iframeElement);
-       String txt= driver.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div[1]/form[2]/div[1]")).getText();
-        System.out.println(txt);
-//        enterName.sendKeys(name);
-//        enterEmail.sendKeys(email);
-//        enterPassword.sendKeys(password);
-    }
 
 }
